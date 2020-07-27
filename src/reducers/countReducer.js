@@ -9,6 +9,9 @@ const countReducer = (state = initialState, action) => {
         ...state,
         count: action.payload,
       };
+    case "FETCH_DATA":
+      console.log("Update Reducer here: FETCH_DATA", action);
+      return state;
     default:
       return state;
   }

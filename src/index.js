@@ -3,7 +3,7 @@ import { registerRootComponent } from "expo";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { Provider } from "react-redux";
 import store from "./store";
-import { changeCount } from "./actions";
+import { changeCount, fetchData } from "./actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const Counter = () => {
@@ -20,22 +20,24 @@ const Counter = () => {
     dispatch(changeCount(--count));
   };
 
-  React.useEffect(() => {
-    getNews();
-  }, []);
-  const getNews = async () => {
-    const response = await fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=6eec2f7fe6cd4c40a3fef8f33f5778fe"
-    );
-    const data = await response.json();
-    console.log("data", data);
-  };
+  // React.useEffect(() => {
+  //   getNews();
+  // }, []);
+  // const getNews = async () => {
+  //   const response = await fetch(
+  //     "https://newsapi.org/v2/top-headlines?country=us&apiKey=6eec2f7fe6cd4c40a3fef8f33f5778fe"
+  //   );
+  //   const data = await response.json();
+  //   console.log("data", data);
+  // };
 
   return (
     <View styles={styles.container}>
       <Button title="increment" onPress={() => increment(count)} />
       <Text style={styles.textCenter}>{count}</Text>
       <Button title="decrement" onPress={() => decrement(count)} />
+
+      <Button title="fetch Data" onPress={() => dispatch(fetchData())} />
     </View>
   );
 };
