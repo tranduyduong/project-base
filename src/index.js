@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Counter = () => {
   const counter = useSelector((state) => state.counter);
+  console.log("counter", counter);
   const dispatch = useDispatch();
   const { count } = counter;
 
@@ -18,6 +19,18 @@ const Counter = () => {
   const decrement = (count) => {
     dispatch(changeCount(--count));
   };
+
+  React.useEffect(() => {
+    getNews();
+  }, []);
+  const getNews = async () => {
+    const response = await fetch(
+      "https://newsapi.org/v2/top-headlines?country=us&apiKey=6eec2f7fe6cd4c40a3fef8f33f5778fe"
+    );
+    const data = await response.json();
+    console.log("data", data);
+  };
+
   return (
     <View styles={styles.container}>
       <Button title="increment" onPress={() => increment(count)} />
