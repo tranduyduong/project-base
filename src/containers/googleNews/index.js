@@ -4,7 +4,8 @@ import { getGoogleNews } from "./Action";
 import { useSelector, useDispatch } from "react-redux";
 
 export default Counter = () => {
-  const counter = useSelector((state) => state.counter);
+  const news = useSelector((state) => state.news);
+  console.log('news', news);
   const dispatch = useDispatch();
   return (
     <View style={styles.container}>
