@@ -1,11 +1,11 @@
-import { FETCH_GOOGLE_NEWS } from "./Constant";
+import { GET_WEATHER } from "./Constant";
 
 const initialState = {
   data: [],
 };
-export default googleNews = (state = initialState, action) => {
+export default weather = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_GOOGLE_NEWS:
+    case GET_WEATHER:
       console.log("action", action);
       return {
         ...state,
