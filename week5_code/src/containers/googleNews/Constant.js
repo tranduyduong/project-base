@@ -1,1 +1,0 @@
-export const FETCH_GOOGLE_NEWS = "FETCH_GOOGLE_NEWS";
