@@ -1,5 +1,5 @@
 # Demo How to use Redux & fetching api
-![PLEASE](https://im4.ezgif.com/tmp/ezgif-4-15d016e29739.gif)
+![PLEASE](https://im4.ezgif.com/tmp/ezgif-4-64c9fdc19cf3.gif)
 
 # React Native Boilerplate for CoderSchool
 
@@ -8,9 +8,9 @@ Simple react-native boilerplate for mobile development.
 ## Getting Started
 
 1. Ensure you've followed the [React Native - Get Started Guide](https://facebook.github.io/react-native/docs/getting-started.html)
-1. Clone this project `git clone https://github.com/2ksoft/boilerplate-rn-coderschool.git`
-1. Run `npm install` from root directory
-1. Start the app in [an emulator](/docs/quick-tips.md#running-in-an-emulator)
+1. Clone this project `git clone https://github.com/tranduyduong/project-base/tree/boilerplate-fetching-api`
+1. Run `yarn install` from root directory
+1. Start the app `yarn ios` or `yarn android`
 
 ## Stack
 
@@ -23,14 +23,21 @@ Simple react-native boilerplate for mobile development.
 ## File Structure
 
 - `/src` - Contains our React Native App codebase
-  - `/actions` - Action Types and Action Creators
-  - `/assets` - Images, Fonts and others
-  - `/components` - Dumb components
-    - `/common` - Shared components
-  - `/config` - Config files
+  - `/actions` - Shared Action Types and Action Creators
+  - `/constants` - Shared Images, Fonts and others
   - `/containers` - Smart components
+        - `/index.js`
+        - `/counter`
+        - - - Action.js
+        - - - Constants.js
+        - - - index.js
+        - - - Reducer.js
+        - `/googleNews`
+        - - - Action.js
+        - - - Constants.js
+        - - - index.js
+        - - - Reducer.js
   - `/reducers` - Reducers
-  - `/utils` - Helpers
-  - `/App.js` - Base component
-  - `/Router.js` - App navigation
-  - `/Store.js` - Store
+        - `/index.js`
+  - `/stores` - Store
+      - `/index.js`
