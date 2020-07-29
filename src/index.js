@@ -9,6 +9,7 @@ import GoogleNews from "./containers/googleNews";
 
 const App = ({ params }) => (
   <Provider store={store}>
+    <Counter />
     <GoogleNews />
   </Provider>
 );

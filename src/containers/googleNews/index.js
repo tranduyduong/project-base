@@ -18,6 +18,7 @@ export default Counter = () => {
         Google News
       </Text>
       <Button title="fetch Data" onPress={() => dispatch(getGoogleNews())} />
+      <Text>Total news: {news.data.length}</Text>
     </View>
   );
 };
