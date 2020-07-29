@@ -9,8 +9,9 @@ Simple react-native boilerplate for mobile development.
 
 1. Ensure you've followed the [React Native - Get Started Guide](https://facebook.github.io/react-native/docs/getting-started.html)
 1. Clone this project `git clone https://github.com/tranduyduong/project-base/tree/boilerplate-fetching-api`
-1. Run `yarn install` from root directory
-1. Start the app `yarn ios` or `yarn android`
+2. Check out code to boilerplate-fetching-api branch: Run `git checkout boilerplate-fetching-api`
+3. Run `yarn install` from root directory
+4. Start the app `yarn ios` or `yarn android`
 
 ## Stack
 
