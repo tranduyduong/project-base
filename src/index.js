@@ -6,11 +6,12 @@ import store from "./store";
 
 import Counter from "./containers/counter";
 import GoogleNews from "./containers/googleNews";
-
+import Weather from './containers/weather';
 const App = ({ params }) => (
   <Provider store={store}>
-    <Counter />
-    <GoogleNews />
+    <Weather />
+    {/*<Counter />
+    <GoogleNews />*/}
   </Provider>
 );
 
