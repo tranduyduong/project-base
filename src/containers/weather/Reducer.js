@@ -6,10 +6,9 @@ const initialState = {
 export default weather = (state = initialState, action) => {
   switch (action.type) {
     case GET_WEATHER:
-      console.log("action", action);
       return {
         ...state,
-        data: action.data.articles
+        data: action.data
       }
       break;
     default:

@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 import {
@@ -18,33 +18,28 @@ import styles from "./WeatherStyle.js";
 import WeatherCard from './WeatherCard';
 import CitySelectionButtons from './CitySelectionButtons';
 import Loading from './Loading';
-// import { getWeather } from './Action';
+import { getWeather } from './Action';
 
 export default function Weather() {
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState({});
   const [error, setError] = useState(false);
+  
   const [cityName, setCityName] = useState("Hanoi");
-  // const dispatch = useDispatch();
-  // useEffect(async () => {
-  //   // await delay(5000);
-  //   // this.getLocationAsync();
-  // }, []);
+  const dispatch = useDispatch();
+  const weather = useSelector((state) => state.weather);
+  useEffect(() => {
+    getLocationAsync();
+  }, []);
 
-  // getLocationAsync = async () => {
-  //   const { status } = await Permissions.askAsync(Permissions.LOCATION);
-  //   console.log("status", status);
-  //   if (status !== "granted") {
-  //     return;
-  //   }
-
-  //   const location = await Location.getCurrentPositionAsync();
-  //   dispatch.getWeather(location.coords.latitude, location.coords.longitude);
-  //   console.log("location", location);
-  //   // this.getWeather(location.coords.latitude, location.coords.longitude);
-  // };
-
-
+  getLocationAsync = async () => {
+    const { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== "granted") {
+      return;
+    }
+    const location = await Location.getCurrentPositionAsync();
+    dispatch(getWeather(location.coords.latitude, location.coords.longitude));
+  };
 
   onChooseCity = (name) => {
     let randImg = "";
@@ -52,13 +47,13 @@ export default function Weather() {
       setCityName(name);
       const city = CITIES.find((city) => city.name === name);
       randImg = city.imgUrl[Math.floor(Math.random() * city.imgUrl.length)];
-      // this.getWeather(city.latitude, city.longitude, randImg);
+      dispatch(getWeather(city.latitude, city.longitude, randImg));
     } else {
-      this.getLocationAsync();
+      getLocationAsync();
     }
   };
 
-  if (loading) {
+  if (!weather.data.main) {
     return <Loading />;
   }
 
@@ -70,7 +65,7 @@ export default function Weather() {
   };
   return (
     <ImageBackground source={bgImage} style={styles.bg}>
-      <WeatherCard  loading={loading} location={location} />
+      <WeatherCard  loading={loading} location={weather.data} />
       <CitySelectionButtons onChooseCity={onChooseCity} />
     </ImageBackground>
   );

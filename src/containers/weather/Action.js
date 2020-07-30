@@ -8,11 +8,7 @@ export const  getWeather = async (latitude, longitude, imgUrl = "") => {
       const response = await fetch(api);
       jsonData = await response.json();
       console.log("jsonData", jsonData);
-      setLocation(jsonData);
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
-      setError(false);
     }
 
   return {
