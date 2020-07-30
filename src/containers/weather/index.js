@@ -24,7 +24,7 @@ export default function Weather() {
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState({});
   const [error, setError] = useState(false);
-  
+
   const [cityName, setCityName] = useState("Hanoi");
   const dispatch = useDispatch();
   const weather = useSelector((state) => state.weather);
@@ -47,7 +47,7 @@ export default function Weather() {
       setCityName(name);
       const city = CITIES.find((city) => city.name === name);
       randImg = city.imgUrl[Math.floor(Math.random() * city.imgUrl.length)];
-      dispatch(getWeather(city.latitude, city.longitude, randImg));
+      dispatch(getWeather(city.latitude, city.longitude));
     } else {
       getLocationAsync();
     }
