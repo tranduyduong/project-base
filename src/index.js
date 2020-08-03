@@ -7,9 +7,12 @@ import store from "./store";
 import Counter from "./containers/counter";
 import GoogleNews from "./containers/googleNews";
 import Weather from './containers/weather';
+import Review from './containers/review';
+import Map from './containers/map';
+
 const App = ({ params }) => (
   <Provider store={store}>
-    <Weather />
+    <Map />
     {/*<Counter />
     <GoogleNews />*/}
   </Provider>
