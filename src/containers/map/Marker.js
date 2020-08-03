@@ -1,42 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Dimensions, Image, Alert } from "react-native";
-import MapView, { Marker, Callout, CalloutSubview } from "react-native-maps";
+import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 const markerImg = require("../../../assets/x.png");
 const LATITUDE = 21.037814;
 const LONGITUDE = 105.781468;
 const log = (msg) => console.log(msg);
-
-const CustomCallout = () => {
-  return (
-    <View>
-      <View>
-        <Text
-          style={{
-            fontWeight: "bold",
-          }}
-        >
-          Test
-        </Text>
-      </View>
-      <View>
-        <Image
-          source={{ uri: "https://facebook.github.io/react/logo-og.png" }}
-          style={{ width: 100, height: 100 }}
-        />
-        <CalloutSubview
-          onPress={() => {
-            Alert.alert("clicked");
-          }}
-          style={[styles.calloutButton]}
-        >
-          <Text>Click me</Text>
-        </CalloutSubview>
-      </View>
-    </View>
-  );
-};
 export default function Map() {
   const [x, setX] = useState({ latitude: LATITUDE, longitude: LONGITUDE });
   return (
@@ -70,11 +40,6 @@ export default function Map() {
           <Image source={markerImg} style={{ height: 100, width: 100 }} />
         </Marker>
         */}
-        <Marker coordinate={x}>
-          <Callout>
-            <CustomCallout />
-          </Callout>
-        </Marker>
       </MapView>
     </View>
   );
