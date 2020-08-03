@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native";
 
 const propTypes = {
   children: PropTypes.node.isRequired,
@@ -26,37 +26,37 @@ CustomCallout.propTypes = propTypes;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    alignSelf: 'flex-start',
+    flexDirection: "column",
+    alignSelf: "flex-start",
   },
   bubble: {
     width: 140,
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
-    backgroundColor: '#4da2ab',
+    flexDirection: "row",
+    alignSelf: "flex-start",
+    backgroundColor: "#4da2ab",
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 6,
-    borderColor: '#007a87',
+    borderColor: "#007a87",
     borderWidth: 0.5,
   },
   amount: {
     flex: 1,
   },
   arrow: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     borderWidth: 16,
-    borderColor: 'transparent',
-    borderTopColor: '#4da2ab',
-    alignSelf: 'center',
+    borderColor: "transparent",
+    borderTopColor: "#4da2ab",
+    alignSelf: "center",
     marginTop: -32,
   },
   arrowBorder: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     borderWidth: 16,
-    borderColor: 'transparent',
-    borderTopColor: '#007a87',
-    alignSelf: 'center',
+    borderColor: "transparent",
+    borderTopColor: "#007a87",
+    alignSelf: "center",
     marginTop: -0.5,
   },
 });

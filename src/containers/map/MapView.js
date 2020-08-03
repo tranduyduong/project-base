@@ -7,11 +7,11 @@ const LATITUDE = 21.037814;
 const LONGITUDE = 105.781468;
 
 export default function Map() {
-    return (
+  return (
     <View style={styles.container}>
       <MapView
         provider="google"
-        style={styles.mapView} 
+        style={styles.mapView}
         // region={{
         //   latitude: LATITUDE,
         //   longitude: LONGITUDE,
@@ -25,7 +25,6 @@ export default function Map() {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-
       />
     </View>
   );

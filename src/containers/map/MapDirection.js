@@ -1,22 +1,22 @@
 import React from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
 import MapView from "react-native-maps";
-import MapViewDirections from 'react-native-maps-directions';
+import MapViewDirections from "react-native-maps-directions";
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 const LATITUDE = 21.037814;
 const LONGITUDE = 105.781468;
 //21.0284297,105.77608
-const origin = {latitude: 21.037814, longitude: 105.781468};
-const destination = {latitude: 21.0284297, longitude: 105.77608};
-const GOOGLE_MAPS_APIKEY = 'AIzaSyDrKpgElbyT79g3IxvW7gcp0aVUxgdgVCQ';
+const origin = { latitude: 21.037814, longitude: 105.781468 };
+const destination = { latitude: 21.0284297, longitude: 105.77608 };
+const GOOGLE_MAPS_APIKEY = "AIzaSyDrKpgElbyT79g3IxvW7gcp0aVUxgdgVCQ";
 
 export default function Map() {
-    return (
+  return (
     <View style={styles.container}>
       <MapView
         provider="google"
-        style={styles.mapView} 
+        style={styles.mapView}
         // region={{
         //   latitude: LATITUDE,
         //   longitude: LONGITUDE,
@@ -30,16 +30,16 @@ export default function Map() {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-
       >
-      <MapViewDirections
-    origin={origin}
-    destination={destination}
-    apikey={GOOGLE_MAPS_APIKEY}
-    strokeWidth={3}
-    strokeColor="hotpink"
-    optimizeWaypoints={true}
-  /></MapView>
+        <MapViewDirections
+          origin={origin}
+          destination={destination}
+          apikey={GOOGLE_MAPS_APIKEY}
+          strokeWidth={3}
+          strokeColor="hotpink"
+          optimizeWaypoints={true}
+        />
+      </MapView>
     </View>
   );
 }
